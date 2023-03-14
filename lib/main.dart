@@ -4,7 +4,15 @@ import 'package:movies_app/screens/screens.dart';
 import 'package:provider/provider.dart';
 
 
-void main() => runApp(const AppState());
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await inizalitation(null);
+  runApp(const AppState());
+}
+
+Future inizalitation(BuildContext? context) async {
+  await Future.delayed(const Duration(milliseconds: 1000));
+}
 
 class AppState  extends StatelessWidget {
   const AppState ({super.key});
@@ -33,12 +41,12 @@ class MyApp extends StatelessWidget {
       title: 'Movies App',
       initialRoute: 'home',
       routes: {
-        'home':(context) => HomeScreen(),
+        'home':(context) => const HomeScreen(),
         'details':(context) => DetailsScreen(),
       },
-      theme: ThemeData.light().copyWith(
+      theme: ThemeData.dark().copyWith(
         appBarTheme: AppBarTheme(
-          color: Colors.pink[100]
+          color: Colors.black.withOpacity(0.3)
         )
       ),
     );
