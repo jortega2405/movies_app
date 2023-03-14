@@ -81,6 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         leading: Icon(_connectivityStatus == 'Connected'? Icons.network_wifi: Icons.perm_scan_wifi_outlined),
         title: IconButton(
           onPressed: () async {
